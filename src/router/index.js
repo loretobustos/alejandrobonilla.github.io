@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
+import Books from '../views/Books.vue'
+import Book from '../components/books/Book.vue'
+import BookCreate from '../components/books/BookCreate.vue'
 import firebase from 'firebase'
 Vue.use(VueRouter)
 
@@ -18,6 +21,31 @@ const routes = [
     path: '/home',
     name: 'Home',
     component: Home,
+    meta:{
+      autenticado:true,
+    }
+  },
+  {
+    path: '/libros',
+    name: 'Books',
+    component: Books,
+    meta:{
+      autenticado:true,
+    }
+  },
+  {
+    path:'/libros/:id',
+    name:'Book',
+    component:Book,
+    props:true,
+    meta:{
+      autenticado:true,
+    }
+  },
+  {
+    path:"/libro",
+    name:'addBook',
+    component:BookCreate,
     meta:{
       autenticado:true,
     }
